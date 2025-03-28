@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+html {
+  font-family: 'Roboto', sans-serif; /* This sets the font globally */
+}
+
+@font-face {
+  font-family: title;
+  src: url('src/assets/OPTIEngraversOldEnglish.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+@theme {
+  --font-titleFont: title, "serif";
+  --color-brown: #210706;
+  --color-red: #891D1A;
+  --color-blue: #5E657B;
+  --color-beige: #F1E6D2;
+}
