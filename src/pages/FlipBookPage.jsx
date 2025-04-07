@@ -60,7 +60,7 @@ const FlipBookPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center flex-col min-h-[80vh] mx-4 bg-pink-50 py-20">
+    <div className="flex justify-center items-center flex-col min-h-[80vh] px-4 bg-pink-50 py-20">
       <div className="text-4xl font-semibold font-serif mt-[16px]">
         Winter Edition
       </div>
@@ -99,19 +99,51 @@ const FlipBookPage = () => {
         </button>
 
         {fullscreenImage && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-50">
-            <button
-              className="absolute top-6 right-6 text-white text-4xl font-bold cursor-pointer hover:text-gray-400 transition"
-              onClick={closeFullscreen}
-            >
-              &times;
-            </button>
-            <img
-              src={fullscreenImage}
-              alt="Fullscreen"
-              className="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl transition-transform duration-300 scale-100"
-            />
-          </div>
+          <>
+            <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-50 select-none">
+              <button
+                className="absolute top-6 right-12 text-white text-9xl font-bold cursor-pointer hover:text-gray-400 transition"
+                onClick={closeFullscreen}
+              >
+                &times;
+              </button>
+              <div className="relative">
+                <img
+                  src={fullscreenImage}
+                  alt="Fullscreen"
+                  className="w-[100%] h-[100%] rounded-lg shadow-2xl transition-transform duration-300 scale-100"
+                />
+                
+                <button
+                  onClick={() => {
+                    const prevPage =
+                      currentPage - 1 < 0
+                        ? DecemberEdition.length - 1
+                        : currentPage - 1;
+                    setCurrentPage(prevPage);
+                    openFullscreen(DecemberEdition[prevPage]);
+                  }}
+                  className="absolute left-[-12%] top-1/2 transform -translate-y-1/2 text-white text-6xl font-bold cursor-pointer hover:text-gray-400 transition"
+                >
+                  &#8592;
+                </button>
+                
+                <button
+                  onClick={() => {
+                    const nextPage =
+                      currentPage + 1 >= DecemberEdition.length
+                        ? 0
+                        : currentPage + 1;
+                    setCurrentPage(nextPage);
+                    openFullscreen(DecemberEdition[nextPage]);
+                  }}
+                  className="absolute right-[-12%] top-1/2 transform -translate-y-1/2 text-white text-6xl font-bold cursor-pointer hover:text-gray-400 transition"
+                >
+                  &#8594;
+                </button>
+              </div>
+            </div>
+          </>
         )}
       </div>
     </div>

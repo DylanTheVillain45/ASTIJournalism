@@ -4,8 +4,14 @@ import { Link } from "react-router-dom";
 function ArticleThumbNail({ id, title, author, img, likes }) {
   return (
     <Link to={`/article/${id}`}>
-      <div className="px-4 py-4 border-red border-2 bg-beige hover:drop-shadow-2xl transition-all duration-300 mx-1 mb-8">
-        <img src={img} alt="" className="h-full mx-auto w-72 object-cover" />
+      <div className="flex flex-col h-full px-4 py-4 border-red border-2 bg-beige hover:drop-shadow-2xl transition-all duration-300 mx-1 mb-8">
+        <div className="flex-grow">
+          <img
+            src={img}
+            alt=""
+            className="w-72 h-[300px] object-cover mx-auto" // Adjust height here
+          />
+        </div>
         <h2 className="text-center capitalize text-2xl font-semibold tracking-wide mt-4 underline mb-2">
           {title}
         </h2>
