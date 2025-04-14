@@ -111,9 +111,9 @@ const FlipBookPage = () => {
                 <img
                   src={fullscreenImage}
                   alt="Fullscreen"
-                  className="w-[100%] h-[100%] rounded-lg shadow-2xl transition-transform duration-300 scale-100"
+                  className=" max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl transition-transform duration-300 scale-100"
                 />
-                
+
                 <button
                   onClick={() => {
                     const prevPage =
@@ -123,11 +123,11 @@ const FlipBookPage = () => {
                     setCurrentPage(prevPage);
                     openFullscreen(DecemberEdition[prevPage]);
                   }}
-                  className="absolute left-[-12%] top-1/2 transform -translate-y-1/2 text-white text-6xl font-bold cursor-pointer hover:text-gray-400 transition"
+                  className="absolute left-[-15%] top-1/2 transform -translate-y-1/2 text-white text-6xl font-bold cursor-pointer hover:text-gray-400 transition"
                 >
                   &#8592;
                 </button>
-                
+
                 <button
                   onClick={() => {
                     const nextPage =
@@ -137,7 +137,7 @@ const FlipBookPage = () => {
                     setCurrentPage(nextPage);
                     openFullscreen(DecemberEdition[nextPage]);
                   }}
-                  className="absolute right-[-12%] top-1/2 transform -translate-y-1/2 text-white text-6xl font-bold cursor-pointer hover:text-gray-400 transition"
+                  className="absolute right-[-15%] top-1/2 transform -translate-y-1/2 text-white text-6xl font-bold cursor-pointer hover:text-gray-400 transition"
                 >
                   &#8594;
                 </button>
